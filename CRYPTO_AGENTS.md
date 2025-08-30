@@ -1,10 +1,10 @@
 # CRYPTO_AGENTS.md - CryptoSuperClaude Agent Extensions
 
-**16 specialized crypto agents extending SuperClaude's capabilities**
+**17 specialized crypto agents extending SuperClaude's capabilities**
 
 ## Overview
 
-CryptoSuperClaude adds 16 professional crypto intelligence agents to the existing SuperClaude framework. These agents integrate seamlessly with the Task tool and work alongside the original 14 SuperClaude agents.
+CryptoSuperClaude adds 17 professional crypto intelligence agents to the existing SuperClaude framework. These agents integrate seamlessly with the Task tool and work alongside the original 14 SuperClaude agents.
 
 ## Crypto Agent List
 
@@ -22,18 +22,19 @@ CryptoSuperClaude adds 16 professional crypto intelligence agents to the existin
 
 ### Security & Risk
 9. **crypto-security-researcher** - Smart contract audits, vulnerability detection
-10. **crypto-risk-manager** - Portfolio risk assessment, position sizing
-11. **crypto-mev-researcher** - MEV detection, protection strategies
+10. **crypto-security-engineer** - Secure contract development, vulnerability fixes, security patterns
+11. **crypto-risk-manager** - Portfolio risk assessment, position sizing
+12. **crypto-mev-researcher** - MEV detection, protection strategies
 
 ### On-Chain Analysis
-12. **crypto-onchain-analyst** - Blockchain data analysis, wallet tracking
-13. **crypto-wallet-detective** - Wallet investigation, transaction tracing
-14. **crypto-bridge-analyst** - Cross-chain bridge analysis, security assessment
+13. **crypto-onchain-analyst** - Blockchain data analysis, wallet tracking
+14. **crypto-wallet-detective** - Wallet investigation, transaction tracing
+15. **crypto-bridge-analyst** - Cross-chain bridge analysis, security assessment
 
 ### Specialized Domains
-15. **crypto-governance-analyst** - DAO analysis, governance token evaluation
-16. **crypto-nft-specialist** - NFT valuation, collection analysis
-17. **crypto-social-sentiment** - Social media sentiment, trend analysis
+16. **crypto-governance-analyst** - DAO analysis, governance token evaluation
+17. **crypto-nft-specialist** - NFT valuation, collection analysis
+18. **crypto-social-sentiment** - Social media sentiment, trend analysis
 
 ## Integration with SuperClaude
 
@@ -126,7 +127,8 @@ Crypto agents complement the 14 original SuperClaude agents:
 
 ### Collaboration Examples
 - **crypto-analyst** + **data-analyst**: Enhanced market research
-- **crypto-security-researcher** + **security-engineer**: Comprehensive audits
+- **crypto-security-researcher** + **crypto-security-engineer**: Complete security coverage (audit + development)
+- **crypto-security-engineer** + **backend-engineer**: Secure smart contract implementation
 - **crypto-defi-strategist** + **backend-engineer**: DeFi integration
 - **crypto-nft-specialist** + **frontend-architect**: NFT marketplace UI
 
@@ -154,11 +156,19 @@ To test if agents are working:
 # Test individual agent
 /task "What is the current BTC price?" --subagent_type crypto-analyst
 
+# Test security engineering agent
+/task "Implement secure ERC20 token with pausable functionality" --subagent_type crypto-security-engineer
+/task "Fix reentrancy vulnerability in withdrawal function" --subagent_type crypto-security-engineer
+
 # Test Hive Intelligence MCP
 /task "Get Ethereum gas prices" --subagent_type crypto-onchain-analyst
 
 # Test multi-agent coordination
 /task "Comprehensive DeFi protocol analysis for Aave" --subagent_type crypto-defi-strategist
+
+# Test security collaboration
+/task "Audit smart contract at 0x123..." --subagent_type crypto-security-researcher
+/task "Fix vulnerabilities found in audit" --subagent_type crypto-security-engineer
 ```
 
 ## Troubleshooting
@@ -181,7 +191,7 @@ To test if agents are working:
 ## Summary
 
 CryptoSuperClaude successfully extends SuperClaude with:
-- ✅ 16 specialized crypto agents
+- ✅ 17 specialized crypto agents
 - ✅ Hive Intelligence MCP integration
 - ✅ Full compatibility with original SuperClaude
 - ✅ Seamless Task tool integration
