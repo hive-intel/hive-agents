@@ -1,7 +1,11 @@
 {
-  "name": "@bifrost_inc/superclaude",
+  "name": "hive-agents",
   "version": "4.0.8",
-  "description": "SuperClaude Framework NPM wrapper - Official Node.js wrapper for the Python SuperClaude package. Enhances Claude Code with specialized commands and AI development tools.",
+  "description": "Hive Intelligence Agents - Specialized crypto intelligence agents extending Claude Code with blockchain analysis and DeFi capabilities.",
+  "main": "index.js",
+  "bin": {
+    "hive-agents": "./bin/hive-agents.js"
+  },
   "scripts": {
     "postinstall": "node ./bin/install.js",
     "update": "node ./bin/update.js",
@@ -10,24 +14,33 @@
   },
   "files": [
     "bin/",
+    "agents/",
+    "index.js",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "HIVE_AGENTS.md",
+    "pyproject.toml",
+    "setup.py"
   ],
   "author": {
-    "name": "SuperClaude Org",
-    "url": "https://github.com/SuperClaude-Org"
+    "name": "Hive Intelligence",
+    "url": "https://github.com/hive-intel"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SuperClaude-Org/SuperClaude_Framework.git"
+    "url": "git+https://github.com/hive-intel/hive-agents.git"
   },
   "bugs": {
-    "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework/issues"
+    "url": "https://github.com/hive-intel/hive-agents/issues"
   },
-  "homepage": "https://github.com/SuperClaude-Org/SuperClaude_Framework#readme",
+  "homepage": "https://github.com/hive-intel/hive-agents#readme",
   "license": "MIT",
   "keywords": [
-    "superclaude",
+    "hive",
+    "agents",
+    "crypto",
+    "blockchain",
+    "defi",
     "ai",
     "cli",
     "pypi",
@@ -41,11 +54,12 @@
   },
   "funding": {
     "type": "github",
-    "url": "https://github.com/sponsors/NomenAK"
+    "url": "https://github.com/sponsors/hive-intel"
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest"
   },
   "preferGlobal": true,
   "type": "commonjs"

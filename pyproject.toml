@@ -3,13 +3,13 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "SuperClaude"
+name = "hive-agents"
 version = "4.0.8"
 authors = [
     {name = "NomenAK", email = "anton.knoery@gmail.com"},
     {name = "Mithun Gowda B", email = "mithungowda.b7411@gmail.com"}
 ]
-description = "SuperClaude Framework Management Hub - AI-enhanced development framework for Claude Code"
+description = "Hive Intelligence Agents - Professional crypto intelligence agents extending Claude Code with blockchain analysis and DeFi capabilities"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.8"
@@ -35,15 +35,15 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/SuperClaude-Org/SuperClaude_Framework"
-GitHub = "https://github.com/SuperClaude-Org/SuperClaude_Framework"
-"Bug Tracker" = "https://github.com/SuperClaude-Org/SuperClaude_Framework/issues"
+Homepage = "https://github.com/hive-intel/hive-agents"
+GitHub = "https://github.com/hive-intel/hive-agents"
+"Bug Tracker" = "https://github.com/hive-intel/hive-agents/issues"
 "Mithun Gowda B" = "https://github.com/mithun50"
 "NomenAK" = "https://github.com/NomenAK"
 
 [project.scripts]
-SuperClaude = "SuperClaude.__main__:main"
-superclaude = "SuperClaude.__main__:main"
+hive-agents = "hive_agents.__main__:main"
+hiveagents = "hive_agents.__main__:main"
 
 [project.optional-dependencies]
 dev = [
@@ -63,12 +63,14 @@ include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["SuperClaude*", "setup*"]
+include = ["hive_agents*", "HiveAgents*", "SuperClaude*", "setup*", "agents*"]
 exclude = ["tests*", "*.tests*", "*.tests", ".git*", ".venv*", "*.egg-info*"]
 
 [tool.setuptools.package-data]
 "setup" = ["data/*.json", "data/*.yaml", "data/*.yml", "components/*.py", "**/*.py"]
+"hive_agents" = ["*.md", "*.txt", "**/*.md", "**/*.txt", "**/*.json", "**/*.yaml", "**/*.yml"]
 "SuperClaude" = ["*.md", "*.txt", "**/*.md", "**/*.txt", "**/*.json", "**/*.yaml", "**/*.yml"]
+"agents" = ["*.md", "*.txt", "**/*.md"]
 
 [tool.black]
 line-length = 88
@@ -114,7 +116,7 @@ markers = [
 ]
 
 [tool.coverage.run]
-source = ["SuperClaude", "setup"]
+source = ["hive_agents", "HiveAgents", "SuperClaude", "setup", "agents"]
 omit = [
     "*/tests/*",
     "*/test_*",

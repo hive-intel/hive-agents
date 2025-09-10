@@ -1,10 +1,10 @@
-# CRYPTO_AGENTS.md - CryptoSuperClaude Agent Extensions
+# HIVE_AGENTS.md - Hive Intelligence Agents
 
-**17 specialized crypto agents extending SuperClaude's capabilities**
+**17 specialized crypto agents extending Claude Code's capabilities**
 
 ## Overview
 
-CryptoSuperClaude adds 17 professional crypto intelligence agents to the existing SuperClaude framework. These agents integrate seamlessly with the Task tool and work alongside the original 14 SuperClaude agents.
+Hive Intelligence adds 17 professional crypto intelligence agents to Claude Code. These agents integrate seamlessly with the Task tool and work alongside 14 base development agents for a total of 31 specialized agents.
 
 ## Crypto Agent List
 
@@ -36,7 +36,7 @@ CryptoSuperClaude adds 17 professional crypto intelligence agents to the existin
 17. **crypto-nft-specialist** - NFT valuation, collection analysis
 18. **crypto-social-sentiment** - Social media sentiment, trend analysis
 
-## Integration with SuperClaude
+## Integration with Claude Code
 
 ### Using Crypto Agents via Task Tool
 
@@ -47,7 +47,7 @@ CryptoSuperClaude adds 17 professional crypto intelligence agents to the existin
 # Use multiple agents for comprehensive analysis
 /task "Full security audit of 0x123..." --subagent_type crypto-security-researcher
 
-# Combine with existing SuperClaude agents
+# Combine with existing base agents
 /task "Build crypto dashboard" --subagent_type frontend-architect
 /task "Add market data" --subagent_type crypto-analyst
 ```
@@ -90,18 +90,18 @@ Crypto agents work with COA (CryptoOnchainAgents) commands:
 /coa:portfolio 0xwallet... --strategy balanced
 ```
 
-### SuperClaude Commands
-They also integrate with existing SuperClaude commands:
+### Framework Commands
+They also integrate with existing framework commands:
 
 ```bash
 # Analyze crypto project
-/sc:analyze --target "Uniswap protocol" --focus security
+/hive:analyze --target "Uniswap protocol" --focus security
 
 # Build crypto feature
-/sc:build --type "DEX aggregator" --framework react
+/hive:build --type "DEX aggregator" --framework react
 
 # Research crypto topic
-/sc:research --topic "MEV protection strategies"
+/hive:research --topic "MEV protection strategies"
 ```
 
 ## Agent Capabilities
@@ -121,9 +121,9 @@ All crypto agents have access to:
 **On-chain Agents**: Transaction analysis, wallet tracking, flow analysis
 **NFT Agents**: Rarity scoring, floor price analysis, collection metrics
 
-## Working with Original Agents
+## Working with Base Agents
 
-Crypto agents complement the 14 original SuperClaude agents:
+Crypto agents complement the 14 base development agents:
 
 ### Collaboration Examples
 - **crypto-analyst** + **data-analyst**: Enhanced market research
@@ -174,7 +174,7 @@ To test if agents are working:
 ## Troubleshooting
 
 ### Agent Not Found
-- Ensure agents are in `/Desktop/CryptoSuperClaude/agents/`
+- Ensure agents are in `agents/`
 - Check agent file has proper YAML frontmatter
 - Verify Task tool can access agents directory
 
@@ -184,15 +184,15 @@ To test if agents are working:
 - Review MCP logs for errors
 
 ### Integration Problems
-- Agents work alongside original SuperClaude agents
-- No modifications to core SuperClaude functionality
+- Agents work alongside base development agents
+- No modifications to core Claude Code functionality
 - All original commands and agents remain intact
 
 ## Summary
 
-CryptoSuperClaude successfully extends SuperClaude with:
+Hive Intelligence successfully extends Claude Code with:
 - ✅ 17 specialized crypto agents
 - ✅ Hive Intelligence MCP integration
-- ✅ Full compatibility with original SuperClaude
+- ✅ Full compatibility with Claude Code
 - ✅ Seamless Task tool integration
 - ✅ COA command support

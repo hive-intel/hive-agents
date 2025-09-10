@@ -1,0 +1,48 @@
+# Development files
+*.pyc
+__pycache__/
+*.egg-info/
+dist/
+build/
+.git/
+.github/
+.vscode/
+.idea/
+
+# Documentation source files (keep compiled docs)
+Docs/
+docs/
+SuperClaude/
+scripts/
+tests/
+test/
+
+# Config files not needed for npm
+.gitignore
+.gitattributes
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
+SECURITY.md
+CHANGELOG.md
+*.yml
+*.yaml
+!package.json
+
+# Python-specific files not needed for npm users
+requirements*.txt
+tox.ini
+.coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Keep only essential files for npm package
+# Included via "files" in package.json:
+# - bin/
+# - agents/
+# - index.js
+# - README.md
+# - LICENSE
+# - HIVE_AGENTS.md
+# - pyproject.toml (for Python installation)
+# - setup.py (for Python installation)

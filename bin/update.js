@@ -1,71 +1,47 @@
 #!/usr/bin/env node
-const { run, detectPip, detectPipx, isSuperClaudeInstalledPipx, checkPythonEnvironment } = require("./checkEnv");
 
-console.log("🔄 Checking for SuperClaude updates...");
+/**
+ * Hive Agents Update Script
+ * Updates the framework to the latest version
+ */
 
-// Detect installation method
-const isExternallyManaged = checkPythonEnvironment();
-let updateMethod = null;
+const { spawn } = require('child_process');
 
-// Check if installed via pipx
-if (detectPipx() && isSuperClaudeInstalledPipx()) {
-  updateMethod = "pipx";
-  console.log("✅ Detected pipx installation");
-} else {
-  // Check for pip installation
-  let pipCmd = detectPip();
-  if (!pipCmd) {
-    console.error("❌ Neither pipx nor pip found, cannot update.");
-    console.error("   Please install SuperClaude first using:");
-    console.error("   pipx install SuperClaude");
-    console.error("   or");
-    console.error("   pip install SuperClaude");
+const colors = {
+  reset: '\x1b[0m',
+  bright: '\x1b[1m',
+  yellow: '\x1b[33m',
+  green: '\x1b[32m',
+  red: '\x1b[31m',
+  cyan: '\x1b[36m'
+};
+
+console.log(`
+${colors.cyan}${colors.bright}🐝 Updating Hive Intelligence Agents...${colors.reset}
+`);
+
+// Update via npm
+const npmUpdate = spawn('npm', ['update', '-g', 'hive-agents'], {
+  stdio: 'inherit',
+  shell: true
+});
+
+npmUpdate.on('close', (code) => {
+  if (code === 0) {
+    console.log(`
+${colors.green}✅ Hive Intelligence Agents updated successfully!${colors.reset}
+
+${colors.bright}What's New:${colors.reset}
+Run ${colors.cyan}hive-agents info${colors.reset} to see the current version
+Visit ${colors.cyan}https://github.com/hive-intel/hive-agents/releases${colors.reset} for changelog
+`);
+  } else {
+    console.error(`
+${colors.red}❌ Update failed${colors.reset}
+
+Try manually updating with:
+  ${colors.cyan}npm install -g hive-agents@latest${colors.reset}
+`);
     process.exit(1);
   }
-  
-  if (isExternallyManaged) {
-    updateMethod = "pip-user";
-    console.log("✅ Detected pip installation with --user flag");
-  } else {
-    updateMethod = "pip";
-    console.log("✅ Detected standard pip installation");
-  }
-}
-
-// Perform update based on detected method
-console.log("🔄 Updating SuperClaude from PyPI...");
-
-let result;
-switch(updateMethod) {
-  case "pipx":
-    result = run("pipx", ["upgrade", "SuperClaude"], { stdio: "inherit" });
-    break;
-  case "pip-user":
-    result = run(detectPip(), ["install", "--upgrade", "--user", "SuperClaude"], { stdio: "inherit" });
-    break;
-  case "pip":
-    result = run(detectPip(), ["install", "--upgrade", "SuperClaude"], { stdio: "inherit" });
-    break;
-}
-
-if (result.status !== 0) {
-  console.error("❌ Update failed.");
-  if (updateMethod === "pip" && isExternallyManaged) {
-    console.error("   Your system requires pipx or --user flag for pip operations.");
-    console.error("   Try: pipx upgrade SuperClaude");
-    console.error("   Or:  pip install --upgrade --user SuperClaude");
-  }
-  process.exit(1);
-}
-
-console.log("✅ SuperClaude updated successfully!");
-
-// Run SuperClaude update command
-console.log("\n🚀 Running SuperClaude update...");
-const updateResult = run("SuperClaude", ["update"], { stdio: "inherit" });
-
-if (updateResult.status !== 0) {
-  console.log("\n⚠️  Could not run 'SuperClaude update' automatically.");
-  console.log("   Please run it manually:");
-  console.log("   SuperClaude update");
-}
+});

@@ -1,114 +1,89 @@
 #!/usr/bin/env node
-const { run, detectPython, detectPip, detectPipx, isSuperClaudeInstalled, isSuperClaudeInstalledPipx, checkPythonEnvironment } = require("./checkEnv");
 
-console.log("🔍 Checking environment...");
+/**
+ * Hive Agents Post-Install Script
+ * Automatically runs after npm install
+ */
 
-let pythonCmd = detectPython();
-if (!pythonCmd) {
-  console.error("❌ Python 3 is required but not found.");
-  console.error("   Please install Python 3.8 or later from https://python.org");
-  process.exit(1);
-}
-console.log(`✅ Found Python: ${pythonCmd}`);
+const { spawn } = require('child_process');
+const path = require('path');
+const fs = require('fs');
 
-// Check if we're in an externally managed environment (PEP 668)
-const isExternallyManaged = checkPythonEnvironment();
-let installMethod = null;
-let isInstalled = false;
+const colors = {
+  reset: '\x1b[0m',
+  bright: '\x1b[1m',
+  yellow: '\x1b[33m',
+  green: '\x1b[32m',
+  red: '\x1b[31m',
+  cyan: '\x1b[36m'
+};
 
-if (isExternallyManaged) {
-  console.log("📦 Detected externally managed Python environment (PEP 668)");
-  
-  // Try pipx first for externally managed environments
-  let pipxCmd = detectPipx();
-  if (pipxCmd) {
-    console.log(`✅ Found pipx: ${pipxCmd}`);
-    installMethod = "pipx";
-    isInstalled = isSuperClaudeInstalledPipx();
-  } else {
-    console.log("⚠️  pipx is recommended for this system but not found.");
-    console.log("   You can install pipx with: apt install pipx (Ubuntu/Debian) or brew install pipx (macOS)");
-    console.log("   Alternatively, use one of these:");
-    console.log("     pip install --user SuperClaude  # Recommended");
-    console.log("     pip install --break-system-packages SuperClaude  # Force (use with caution)");
-    
-    // Fall back to pip with --user flag
-    let pipCmd = detectPip();
-    if (pipCmd) {
-      console.log(`✅ Found pip: ${pipCmd}`);
-      console.log("   Will attempt installation with --user flag");
-      installMethod = "pip-user";
-      isInstalled = isSuperClaudeInstalled(pipCmd);
-    } else {
-      console.error("❌ Neither pipx nor pip found. Please install one of them.");
-      process.exit(1);
-    }
-  }
+console.log(`
+${colors.cyan}${colors.bright}🐝 Hive Intelligence Agents${colors.reset}
+${colors.yellow}Post-install setup...${colors.reset}
+`);
+
+// Check if we're in a global install
+const isGlobal = process.env.npm_config_global === 'true' || 
+                 process.env.npm_config_global === true ||
+                 /[/\\]npm[/\\]/.test(__dirname);
+
+if (isGlobal) {
+  console.log(`${colors.green}✅ Hive Intelligence Agents installed globally${colors.reset}`);
+  console.log(`
+${colors.bright}Next steps:${colors.reset}
+1. Run: ${colors.cyan}hive-agents install${colors.reset} to set up Claude Code integration
+2. Run: ${colors.cyan}hive-agents list${colors.reset} to see all available agents
+3. Run: ${colors.cyan}hive-agents help${colors.reset} for more commands
+
+${colors.bright}Quick Start:${colors.reset}
+Use agents in Claude Code with the Task tool:
+${colors.cyan}/task "Analyze BTC market" --subagent_type crypto-quant${colors.reset}
+`);
 } else {
-  // Standard environment - use pip normally
-  let pipCmd = detectPip();
-  if (!pipCmd) {
-    console.error("❌ pip is required but not found.");
-    console.error("   Please install pip or use your system's package manager");
-    process.exit(1);
-  }
-  console.log(`✅ Found pip: ${pipCmd}`);
-  installMethod = "pip";
-  isInstalled = isSuperClaudeInstalled(pipCmd);
+  console.log(`${colors.green}✅ Hive Intelligence Agents installed locally${colors.reset}`);
+  console.log(`
+${colors.bright}Usage:${colors.reset}
+const HiveIntelligence = require('hive-agents');
+const hive = new HiveIntelligence();
+
+// Get all agents
+const agents = hive.getAllAgents();
+
+// Install to Claude Code
+await hive.install();
+`);
 }
 
-// Perform installation based on detected method
-if (!isInstalled) {
-  console.log("📦 Installing SuperClaude from PyPI...");
+// Create a simple version check
+try {
+  const packageJson = require('../package.json');
+  console.log(`${colors.yellow}Version: ${packageJson.version}${colors.reset}`);
   
-  let result;
-  switch(installMethod) {
-    case "pipx":
-      result = run("pipx", ["install", "SuperClaude"], { stdio: "inherit" });
-      break;
-    case "pip-user":
-      result = run(detectPip(), ["install", "--user", "SuperClaude"], { stdio: "inherit" });
-      break;
-    case "pip":
-      result = run(detectPip(), ["install", "SuperClaude"], { stdio: "inherit" });
-      break;
-  }
-  
-  if (result.status !== 0) {
-    console.error("❌ Installation failed.");
-    if (installMethod === "pip" && isExternallyManaged) {
-      console.error("   Your system requires pipx or --user flag for pip installations.");
-      console.error("   Try: pipx install SuperClaude");
-      console.error("   Or:  pip install --user SuperClaude");
-    }
-    process.exit(1);
-  }
-  console.log("✅ SuperClaude installed successfully!");
-  
-  // For pipx installations, ensure it's in PATH
-  if (installMethod === "pipx") {
-    console.log("\n📌 Note: If 'SuperClaude' command is not found, run:");
-    console.log("   pipx ensurepath");
-    console.log("   Then restart your terminal or run: source ~/.bashrc");
-  }
-} else {
-  console.log("✅ SuperClaude already installed.");
+  // Check for updates
+  const https = require('https');
+  https.get('https://registry.npmjs.org/hive-agents/latest', (res) => {
+    let data = '';
+    res.on('data', chunk => data += chunk);
+    res.on('end', () => {
+      try {
+        const latest = JSON.parse(data);
+        if (latest.version && latest.version !== packageJson.version) {
+          console.log(`${colors.yellow}📦 Update available: ${latest.version}${colors.reset}`);
+          console.log(`   Run: ${colors.cyan}npm update -g hive-agents${colors.reset}`);
+        }
+      } catch (e) {
+        // Ignore version check errors
+      }
+    });
+  }).on('error', () => {
+    // Ignore network errors
+  });
+} catch (error) {
+  // Ignore errors
 }
 
-// Try to run SuperClaude install
-console.log("\n🚀 Running SuperClaude installation...");
-const installResult = run("SuperClaude", ["install"], { stdio: "inherit" });
-
-if (installResult.status !== 0) {
-  console.log("\n⚠️  Could not run 'SuperClaude install' automatically.");
-  console.log("   Please run it manually after ensuring SuperClaude is in your PATH:");
-  console.log("   SuperClaude install");
-  
-  if (installMethod === "pipx") {
-    console.log("\n   If command not found, try:");
-    console.log("   pipx ensurepath && source ~/.bashrc");
-  } else if (installMethod === "pip-user") {
-    console.log("\n   If command not found, add Python user bin to PATH:");
-    console.log("   export PATH=\"$HOME/.local/bin:$PATH\"");
-  }
-}
+console.log(`
+${colors.bright}Documentation:${colors.reset}
+${colors.cyan}https://github.com/hive-intel/hive-agents${colors.reset}
+`);

@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🚀 SuperClaude Framework
+# 🐝 Hive Intelligence Agents
 
-### **Transform Claude Code into a Structured Development Platform**
+### **Professional Crypto Intelligence Agents for Claude Code**
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-4.0.8-blue" alt="Version">
@@ -11,14 +11,14 @@
 </p>
 
 <p align="center">
-  <a href="https://superclaude.netlify.app/">
+  <a href="https://hiveintelligence.netlify.app/">
     <img src="https://img.shields.io/badge/🌐_Visit_Website-blue" alt="Website">
   </a>
-  <a href="https://pypi.org/project/SuperClaude/">
-    <img src="https://img.shields.io/pypi/v/SuperClaude.svg?" alt="PyPI">
+  <a href="https://pypi.org/project/hive-agents/">
+    <img src="https://img.shields.io/pypi/v/hive-agents.svg?" alt="PyPI">
   </a>
-  <a href="https://www.npmjs.com/package/@bifrost_inc/superclaude">
-    <img src="https://img.shields.io/npm/v/@bifrost_inc/superclaude.svg" alt="npm">
+  <a href="https://www.npmjs.com/package/hive-agents">
+    <img src="https://img.shields.io/npm/v/hive-agents.svg" alt="npm">
   </a>
 </p>
 
@@ -50,10 +50,10 @@
 
 ## 📊 **Framework Statistics**
 
-| **Commands** | **Agents** | **Modes** | **MCP Servers** |
-|:------------:|:----------:|:---------:|:---------------:|
-| **21** | **14** | **5** | **6** |
-| Slash Commands | Specialized AI | Behavioral | Integrations |
+| **Total Agents** | **Crypto Agents** | **Base Agents** | **Focus** |
+|:---------------:|:----------------:|:--------------:|:----------:|
+| **31** | **17** | **14** | **Blockchain & DeFi** |
+| Professional AI | Market & Security | Development | Real-time Data |
 
 </div>
 
@@ -63,7 +63,7 @@
 
 ## 🎯 **Overview**
 
-SuperClaude is a **meta-programming configuration framework** that transforms Claude Code into a structured development platform through behavioral instruction injection and component orchestration. It provides systematic workflow automation with powerful tools and intelligent agents.
+Hive Intelligence Agents is a **specialized crypto intelligence framework** that extends Claude Code with 17 professional crypto agents for comprehensive blockchain analysis, DeFi strategies, and smart contract development. Works seamlessly alongside SuperClaude's 14 base development agents.
 
 ## ⚡ **Quick Installation**
 
@@ -71,33 +71,30 @@ SuperClaude is a **meta-programming configuration framework** that transforms Cl
 
 | Method | Command | Best For |
 |:------:|---------|----------|
-| **🐍 pipx** | `pipx install SuperClaude && pipx upgrade SuperClaude && SuperClaude install` | **✅ Recommended** - Linux/macOS |
-| **📦 pip** | `pip install SuperClaude && pip upgrade SuperClaude && SuperClaude install` | Traditional Python environments |
-| **🌐 npm** | `npm install -g @bifrost_inc/superclaude && superclaude install` | Cross-platform, Node.js users |
+| **🐍 pipx** | `pipx install hive-agents && hive-agents install` | **✅ Recommended** - Linux/macOS |
+| **📦 pip** | `pip install hive-agents && hive-agents install` | Traditional Python environments |
+| **🌐 npm** | `npm install -g hive-agents && hive-agents install` | Cross-platform, Node.js users |
 
 </div>
 
 <details>
-<summary><b>⚠️ IMPORTANT: Upgrading from SuperClaude V3</b></summary>
+<summary><b>⚠️ IMPORTANT: Upgrading from previous versions</b></summary>
 
-**If you have SuperClaude V3 installed, you SHOULD uninstall it before installing V4:**
+**If you have SuperClaude installed, Hive Agents works alongside it:**
 
 ```bash
-# Uninstall V3 first
-Remove all related files and directories :
-*.md *.json and commands/
-
-# Then install V4
-pipx install SuperClaude && pipx upgrade SuperClaude && SuperClaude install
+# Install Hive Agents (works with existing SuperClaude)
+npm install -g hive-agents
+hive-agents install
 ```
 
-**✅ What gets preserved during upgrade:**
-- ✓ Your custom slash commands (outside `commands/sc/`)
-- ✓ Your custom content in `CLAUDE.md` 
-- ✓ Claude Code's `.claude.json`, `.credentials.json`, `settings.json` and `settings.local.json`
-- ✓ Any custom agents and files you've added
+**✅ What Hive Agents adds:**
+- ✓ 17 specialized crypto intelligence agents
+- ✓ Hive Intelligence MCP integration for real-time blockchain data
+- ✓ Works with Claude Code's Task tool
+- ✓ Compatible with existing SuperClaude installation
 
-**⚠️ Note:** Other SuperClaude-related `.json` files from V3 may cause conflicts and should be removed.
+**💡 Note:** Use agents via Task tool: `/task "Analyze BTC" --subagent_type crypto-quant`
 
 </details>
 
@@ -106,13 +103,13 @@ pipx install SuperClaude && pipx upgrade SuperClaude && SuperClaude install
 
 ```bash
 # Option 1: Use pipx (Recommended)
-pipx install SuperClaude
+pipx install hive-agents
 
 # Option 2: User installation
-pip install --user SuperClaude
+pip install --user hive-agents
 
 # Option 3: Force installation (use with caution)
-pip install --break-system-packages SuperClaude
+pip install --break-system-packages hive-agents
 ```
 </details>
 
@@ -120,135 +117,77 @@ pip install --break-system-packages SuperClaude
 
 <div align="center">
 
-## 💖 **Support the Project**
+## 🎉 **Key Features**
 
-> Hey, let's be real - maintaining SuperClaude takes time and resources.
-> 
-> *The Claude Max subscription alone runs $100/month for testing, and that's before counting the hours spent on documentation, bug fixes, and feature development.*
-> *If you're finding value in SuperClaude for your daily work, consider supporting the project.*
-> *Even a few dollars helps cover the basics and keeps development active.*
-> 
-> Every contributor matters, whether through code, feedback, or support. Thanks for being part of this community! 🙏
-
-<table>
-<tr>
-<td align="center" width="33%">
-  
-### ☕ **Ko-fi**
-[![Ko-fi](https://img.shields.io/badge/Support_on-Ko--fi-ff5e5b?logo=ko-fi)](https://ko-fi.com/superclaude)
-
-*One-time contributions*
-
-</td>
-<td align="center" width="33%">
-
-### 🎯 **Patreon**
-[![Patreon](https://img.shields.io/badge/Become_a-Patron-f96854?logo=patreon)](https://patreon.com/superclaude)
-
-*Monthly support*
-
-</td>
-<td align="center" width="33%">
-
-### 💜 **GitHub**
-[![GitHub Sponsors](https://img.shields.io/badge/GitHub-Sponsor-30363D?logo=github-sponsors)](https://github.com/sponsors/SuperClaude-Org)
-
-*Flexible tiers*
-
-</td>
-</tr>
-</table>
-
-### **Your Support Enables:**
-
-| Item | Cost/Impact |
-|------|-------------|
-| 🔬 **Claude Max Testing** | $100/month for validation & testing |
-| ⚡ **Feature Development** | New capabilities & improvements |
-| 📚 **Documentation** | Comprehensive guides & examples |
-| 🤝 **Community Support** | Quick issue responses & help |
-| 🔧 **MCP Integration** | Testing new server connections |
-| 🌐 **Infrastructure** | Hosting & deployment costs |
-
-> **Note:** No pressure though - the framework stays open source regardless. Just knowing people use and appreciate it is motivating. Contributing code, documentation, or spreading the word helps too! 🙏
-
-</div>
-
----
-
-<div align="center">
-
-## 🎉 **What's New in V4**
-
-> *Version 4 brings significant improvements based on community feedback and real-world usage patterns.*
+> *Professional crypto intelligence agents for Claude Code*
 
 <table>
 <tr>
 <td width="50%">
 
-### 🤖 **Smarter Agent System**
-**14 specialized agents** with domain expertise:
-- Security engineer catches real vulnerabilities
-- Frontend architect understands UI patterns
-- Automatic coordination based on context
-- Domain-specific expertise on demand
+### 🤖 **17 Crypto Agents**
+**Specialized expertise** in every domain:
+- Quantitative analysis & algo trading
+- Smart contract security auditing
+- DeFi yield optimization strategies
+- On-chain data investigation
 
 </td>
 <td width="50%">
 
-### 📝 **Improved Namespace**
-**`/sc:` prefix** for all commands:
-- No conflicts with custom commands
-- 21 commands covering full lifecycle
-- From brainstorming to deployment
-- Clean, organized command structure
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-### 🔧 **MCP Server Integration**
-**6 powerful servers** working together:
-- **Context7** → Up-to-date documentation
-- **Sequential** → Complex analysis
-- **Magic** → UI component generation
-- **Playwright** → Browser testing
-- **Morphllm** → Bulk transformations
-- **Serena** → Session persistence
-
-</td>
-<td width="50%">
-
-### 🎯 **Behavioral Modes**
-**5 adaptive modes** for different contexts:
-- **Brainstorming** → Asks right questions
-- **Orchestration** → Efficient tool coordination
-- **Token-Efficiency** → 30-50% context savings
-- **Task Management** → Systematic organization
-- **Introspection** → Meta-cognitive analysis
+### 📊 **Market Intelligence**
+**Real-time data & analysis**:
+- Price movements & technical indicators
+- DEX liquidity & arbitrage opportunities
+- Social sentiment & trend analysis
+- Risk metrics & portfolio management
 
 </td>
 </tr>
 <tr>
 <td width="50%">
 
-### ⚡ **Optimized Performance**
-**Smaller framework, bigger projects:**
-- Reduced framework footprint
-- More context for your code
-- Longer conversations possible
-- Complex operations enabled
+### 🔧 **Hive Intelligence MCP**
+**Blockchain data at your fingertips**:
+- **Market** → Prices, OHLCV, trends
+- **DeFi** → Yields, TVL, protocols
+- **Security** → Audits, risk scores
+- **NFT** → Collections, floor prices
+- **Social** → Sentiment analysis
+- **On-chain** → Wallets, transactions
 
 </td>
 <td width="50%">
 
-### 📚 **Documentation Overhaul**
-**Complete rewrite** for developers:
-- Real examples & use cases
-- Common pitfalls documented
-- Practical workflows included
-- Better navigation structure
+### 🎯 **Task Tool Integration**
+**Simple agent invocation**:
+- `/task "Analyze BTC" --subagent_type crypto-quant`
+- `/task "Audit contract" --subagent_type crypto-security-researcher`
+- Works alongside SuperClaude agents
+- No command conflicts
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### ⚡ **Professional Tools**
+**Enterprise-grade capabilities**:
+- Statistical arbitrage models
+- Vulnerability scanning engines
+- Yield optimization algorithms
+- MEV protection strategies
+
+</td>
+<td width="50%">
+
+### 📚 **Agent Categories**
+**Complete crypto coverage**:
+- **Market & Trading** → 5 agents
+- **DeFi & Liquidity** → 3 agents
+- **Security & Risk** → 4 agents
+- **On-chain Analysis** → 3 agents
+- **Specialized** → 2 agents
 
 </td>
 </tr>
@@ -262,7 +201,7 @@ pip install --break-system-packages SuperClaude
 
 ## 📚 **Documentation**
 
-### **Complete Guide to SuperClaude**
+### **Complete Guide to Hive Intelligence**
 
 <table>
 <tr>
@@ -283,23 +222,23 @@ pip install --break-system-packages SuperClaude
 </td>
 <td valign="top">
 
-- 🎯 [**Commands Reference**](Docs/User-Guide/commands.md)  
-  *All 21 slash commands*
+- 🤖 [**Crypto Agents Guide**](HIVE_AGENTS.md)  
+  *17 crypto intelligence agents*
 
-- 🤖 [**Agents Guide**](Docs/User-Guide/agents.md)  
-  *14 specialized agents*
+- 📚 [**Agent Documentation**](agents/)  
+  *Individual agent capabilities*
 
-- 🎨 [**Behavioral Modes**](Docs/User-Guide/modes.md)  
-  *5 adaptive modes*
+- 🔧 [**Hive Intelligence MCP**](https://hiveintelligence.xyz/mcp)  
+  *Real-time blockchain data*
 
-- 🚩 [**Flags Guide**](Docs/User-Guide/flags.md)  
-  *Control behaviors*
+- 📈 [**Market Analysis**](agents/crypto-quant.md)  
+  *Quantitative trading strategies*
 
-- 🔧 [**MCP Servers**](Docs/User-Guide/mcp-servers.md)  
-  *6 server integrations*
+- 🔒 [**Security Auditing**](agents/crypto-security-researcher.md)  
+  *Smart contract vulnerability detection*
 
-- 💼 [**Session Management**](Docs/User-Guide/session-management.md)  
-  *Save & restore state*
+- 💰 [**DeFi Strategies**](agents/crypto-defi-strategist.md)  
+  *Yield optimization & liquidity*
 
 </td>
 <td valign="top">
@@ -337,7 +276,7 @@ pip install --break-system-packages SuperClaude
 
 ## 🤝 **Contributing**
 
-### **Join the SuperClaude Community**
+### **Join the Hive Intelligence Community**
 
 We welcome contributions of all kinds! Here's how you can help:
 
@@ -353,7 +292,7 @@ We welcome contributions of all kinds! Here's how you can help:
   <a href="CONTRIBUTING.md">
     <img src="https://img.shields.io/badge/📖_Read-Contributing_Guide-blue" alt="Contributing Guide">
   </a>
-  <a href="https://github.com/SuperClaude-Org/SuperClaude_Framework/graphs/contributors">
+  <a href="https://github.com/hive-intel/hive-agents/graphs/contributors">
     <img src="https://img.shields.io/badge/👥_View-All_Contributors-green" alt="Contributors">
   </a>
 </p>
@@ -382,9 +321,9 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 <a href="https://www.star-history.com/#SuperClaude-Org/SuperClaude_Framework&Timeline">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=SuperClaude-Org/SuperClaude_Framework&type=Timeline&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=SuperClaude-Org/SuperClaude_Framework&type=Timeline" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=SuperClaude-Org/SuperClaude_Framework&type=Timeline" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=hive-intel/hive-agents&type=Timeline&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=hive-intel/hive-agents&type=Timeline" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=hive-intel/hive-agents&type=Timeline" />
  </picture>
 </a>
 
@@ -395,14 +334,14 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 <div align="center">
 
-### **🚀 Built with passion by the SuperClaude community**
+### **🚀 Built with passion by the Hive Intelligence community**
 
 <p align="center">
   <sub>Made with ❤️ for developers who push boundaries</sub>
 </p>
 
 <p align="center">
-  <a href="#-superclaude-framework">Back to Top ↑</a>
+  <a href="#-hive-intelligence-agents">Back to Top ↑</a>
 </p>
 
 </div>
