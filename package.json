@@ -1,6 +1,6 @@
 {
   "name": "hive-agents",
-  "version": "4.0.8",
+  "version": "4.1.0",
   "description": "Hive Intelligence Agents - Specialized crypto intelligence agents extending Claude Code with blockchain analysis and DeFi capabilities.",
   "main": "index.js",
   "bin": {
