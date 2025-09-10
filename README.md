@@ -117,6 +117,64 @@ pip install --break-system-packages hive-agents
 
 <div align="center">
 
+## 📖 **Usage After Installation**
+
+### **Using Hive Agents with npm**
+
+After installing with npm, you can use hive-agents in two ways:
+
+#### **1. Command Line Interface**
+```bash
+# Run the main installer
+hive-agents install
+
+# Check version
+hive-agents --version
+
+# Get help
+hive-agents --help
+```
+
+#### **2. Using Crypto Agents in Claude Code**
+Once installed, use the Task tool in Claude Code to invoke crypto agents:
+
+```bash
+# Examples of using crypto agents
+/task "Analyze BTC price trends" --subagent_type crypto-quant
+/task "Audit smart contract at 0x..." --subagent_type crypto-security-researcher
+/task "Find yield opportunities on Ethereum" --subagent_type crypto-defi-strategist
+/task "Investigate whale wallet activity" --subagent_type crypto-on-chain-detective
+```
+
+#### **3. Available Crypto Agents**
+After installation, you'll have access to 17 specialized crypto agents:
+
+| Category | Agents | Example Usage |
+|----------|--------|---------------|
+| **Market & Trading** | crypto-quant, crypto-market-maker, crypto-sentiment-analyst, crypto-technical-analyst, crypto-arbitrageur | Market analysis, trading strategies |
+| **DeFi & Liquidity** | crypto-defi-strategist, crypto-liquidity-optimizer, crypto-yield-aggregator | Yield farming, liquidity provision |
+| **Security & Risk** | crypto-security-researcher, crypto-risk-manager, crypto-portfolio-analyst, crypto-validator-specialist | Smart contract audits, risk assessment |
+| **On-chain Analysis** | crypto-on-chain-detective, crypto-whale-tracker, crypto-forensics-expert | Blockchain investigation, wallet tracking |
+| **Specialized** | crypto-nft-specialist, crypto-mev-researcher | NFT analysis, MEV strategies |
+
+#### **4. Hive Intelligence MCP Integration**
+The installation also adds the Hive Intelligence MCP server for real-time blockchain data:
+
+```bash
+# MCP tools available after installation:
+hive__get_market_data       # Real-time prices and market data
+hive__get_defi_data         # DeFi protocols, yields, TVL
+hive__get_onchain_data      # Wallet balances, transactions
+hive__get_nft_data          # NFT collections, floor prices
+hive__get_social_data       # Social sentiment analysis
+```
+
+</div>
+
+---
+
+<div align="center">
+
 ## 🎉 **Key Features**
 
 > *Professional crypto intelligence agents for Claude Code*
