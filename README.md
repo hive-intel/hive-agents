@@ -1,45 +1,8 @@
 <div align="center">
 
-# 🐝 Hive Intelligence Agents
+# Hive Intelligence Agents
 
 ### **Professional Crypto Intelligence Agents for Claude Code**
-
-<p align="center">
-  <img src="https://img.shields.io/badge/version-4.0.8-blue" alt="Version">
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License">
-  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome">
-</p>
-
-<p align="center">
-  <a href="https://hiveintelligence.netlify.app/">
-    <img src="https://img.shields.io/badge/🌐_Visit_Website-blue" alt="Website">
-  </a>
-  <a href="https://www.npmjs.com/package/hive-agents">
-    <img src="https://img.shields.io/npm/v/hive-agents.svg" alt="npm">
-  </a>
-</p>
-
-<p align="center">
-  <a href="README.md">
-    <img src="https://img.shields.io/badge/🇺🇸_English-blue" alt="English">
-  </a>
-  <a href="README-zh.md">
-    <img src="https://img.shields.io/badge/🇨🇳_中文-red" alt="中文">
-  </a>
-  <a href="README-ja.md">
-    <img src="https://img.shields.io/badge/🇯🇵_日本語-green" alt="日本語">
-  </a>
-</p>
-
-<p align="center">
-  <a href="#-quick-installation">Quick Start</a> •
-  <a href="#-support-the-project">Support</a> •
-  <a href="#-whats-new-in-v4">Features</a> •
-  <a href="#-documentation">Docs</a> •
-  <a href="#-contributing">Contributing</a>
-</p>
-
-</div>
 
 ---
 
@@ -64,7 +27,7 @@ Hive Intelligence Agents is a **specialized crypto intelligence framework** that
 
 ## ⚡ **Quick Installation**
 
-### **No Python Required! Pure Node.js Installation**
+### **Pure Node.js Installation**
 
 | Method | Command | Best For |
 |:------:|---------|----------|
@@ -332,34 +295,6 @@ hive__get_social_data       # Social sentiment analysis
 
 ---
 
-<div align="center">
-
-## 🤝 **Contributing**
-
-### **Join the Hive Intelligence Community**
-
-We welcome contributions of all kinds! Here's how you can help:
-
-| Priority | Area | Description |
-|:--------:|------|-------------|
-| 📝 **High** | Documentation | Improve guides, add examples, fix typos |
-| 🔧 **High** | MCP Integration | Add server configs, test integrations |
-| 🎯 **Medium** | Workflows | Create command patterns & recipes |
-| 🧪 **Medium** | Testing | Add tests, validate features |
-| 🌐 **Low** | i18n | Translate docs to other languages |
-
-<p align="center">
-  <a href="CONTRIBUTING.md">
-    <img src="https://img.shields.io/badge/📖_Read-Contributing_Guide-blue" alt="Contributing Guide">
-  </a>
-  <a href="https://github.com/hive-intel/hive-agents/graphs/contributors">
-    <img src="https://img.shields.io/badge/👥_View-All_Contributors-green" alt="Contributors">
-  </a>
-</p>
-
-</div>
-
----
 
 <div align="center">
 
@@ -377,7 +312,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 <div align="center">
 
-### **🚀 Built with passion by the Hive Intelligence community**
+### **🚀 Built with passion by [Hive Intelligence](https://hiveintelligence.xyz) team **
 
 <p align="center">
   <sub>Made with ❤️ for developers who push boundaries</sub>
