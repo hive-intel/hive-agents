@@ -32,13 +32,15 @@ if (isGlobal) {
   console.log(`${colors.green}✅ Hive Intelligence Agents installed globally${colors.reset}`);
   console.log(`
 ${colors.bright}Next steps:${colors.reset}
-1. Run: ${colors.cyan}hive-agents install${colors.reset} to set up Claude Code integration
+1. Run: ${colors.cyan}hive-agents install${colors.reset} to install agents to Claude Code
 2. Run: ${colors.cyan}hive-agents list${colors.reset} to see all available agents
 3. Run: ${colors.cyan}hive-agents help${colors.reset} for more commands
 
 ${colors.bright}Quick Start:${colors.reset}
-Use agents in Claude Code with the Task tool:
+After running ${colors.cyan}hive-agents install${colors.reset}, use agents in Claude Code:
 ${colors.cyan}/task "Analyze BTC market" --subagent_type crypto-quant${colors.reset}
+
+${colors.yellow}No Python required!${colors.reset} Pure Node.js installation.
 `);
 } else {
   console.log(`${colors.green}✅ Hive Intelligence Agents installed locally${colors.reset}`);

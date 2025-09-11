@@ -132,30 +132,73 @@ async function install() {
   console.log(`${colors.cyan}${colors.bright}🐝 Installing Hive Intelligence Agents...${colors.reset}\n`);
   
   try {
-    // Check if Python is available
-    const pythonCmd = process.platform === 'win32' ? 'py' : 'python3';
+    // Determine Claude Code directory
+    const homeDir = process.platform === 'win32' ? process.env.USERPROFILE : process.env.HOME;
+    const claudeDir = path.join(homeDir, '.claude');
+    const agentsDir = path.join(claudeDir, 'agents');
     
-    // Try to install via pip
-    console.log(`${colors.yellow}Installing Python package...${colors.reset}`);
-    const pipInstall = spawn(pythonCmd, ['-m', 'pip', 'install', '-e', '.'], {
-      cwd: path.join(__dirname, '..'),
-      stdio: 'inherit',
-      shell: true
-    });
+    // Check if Claude Code directory exists
+    if (!fs.existsSync(claudeDir)) {
+      console.log(`${colors.yellow}Creating Claude Code directory at: ${claudeDir}${colors.reset}`);
+      fs.mkdirSync(claudeDir, { recursive: true });
+    }
     
-    pipInstall.on('close', (code) => {
-      if (code === 0) {
-        console.log(`\n${colors.green}✅ Hive Intelligence Agents installed successfully!${colors.reset}`);
-        console.log(`${colors.yellow}Run 'hive-agents install' to complete setup${colors.reset}`);
-      } else {
-        console.error(`${colors.red}Installation failed. Make sure Python and pip are installed.${colors.reset}`);
-        console.log(`\n${colors.yellow}To install Python:${colors.reset}`);
-        console.log(`  Windows: ${colors.blue}winget install Python.Python.3.12${colors.reset}`);
-        console.log(`  macOS/Linux: ${colors.blue}Visit python.org/downloads${colors.reset}`);
+    // Create agents directory if it doesn't exist
+    if (!fs.existsSync(agentsDir)) {
+      console.log(`${colors.yellow}Creating agents directory...${colors.reset}`);
+      fs.mkdirSync(agentsDir, { recursive: true });
+    }
+    
+    // Copy agent files
+    const sourceAgentsDir = path.join(__dirname, '..', 'agents');
+    const agentFiles = fs.readdirSync(sourceAgentsDir).filter(file => file.endsWith('.md'));
+    
+    console.log(`${colors.yellow}Installing ${agentFiles.length} agents...${colors.reset}`);
+    
+    let installedCount = 0;
+    agentFiles.forEach(file => {
+      const sourcePath = path.join(sourceAgentsDir, file);
+      const destPath = path.join(agentsDir, file);
+      
+      try {
+        fs.copyFileSync(sourcePath, destPath);
+        console.log(`  ${colors.green}✓${colors.reset} ${file.replace('.md', '')}`);
+        installedCount++;
+      } catch (err) {
+        console.error(`  ${colors.red}✗${colors.reset} Failed to install ${file}: ${err.message}`);
       }
     });
+    
+    // Copy base agents from SuperClaude if available
+    const superClaudeAgentsDir = path.join(__dirname, '..', 'SuperClaude', 'Agents');
+    if (fs.existsSync(superClaudeAgentsDir)) {
+      console.log(`\n${colors.yellow}Installing base development agents...${colors.reset}`);
+      const baseAgentFiles = fs.readdirSync(superClaudeAgentsDir).filter(file => file.endsWith('.md'));
+      
+      baseAgentFiles.forEach(file => {
+        const sourcePath = path.join(superClaudeAgentsDir, file);
+        const destPath = path.join(agentsDir, file);
+        
+        try {
+          fs.copyFileSync(sourcePath, destPath);
+          console.log(`  ${colors.green}✓${colors.reset} ${file.replace('.md', '')}`);
+          installedCount++;
+        } catch (err) {
+          console.error(`  ${colors.red}✗${colors.reset} Failed to install ${file}: ${err.message}`);
+        }
+      });
+    }
+    
+    console.log(`\n${colors.green}✅ Successfully installed ${installedCount} agents to Claude Code!${colors.reset}`);
+    console.log(`${colors.cyan}Location: ${agentsDir}${colors.reset}`);
+    console.log(`\n${colors.bright}Usage:${colors.reset}`);
+    console.log(`  In Claude Code, use the Task tool:`);
+    console.log(`  ${colors.blue}/task "Your request" --subagent_type [agent-name]${colors.reset}`);
+    console.log(`\nRun ${colors.cyan}hive-agents list${colors.reset} to see all available agents`);
+    
   } catch (error) {
     console.error(`${colors.red}Error during installation: ${error.message}${colors.reset}`);
+    process.exit(1);
   }
 }
 

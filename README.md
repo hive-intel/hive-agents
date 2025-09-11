@@ -14,9 +14,6 @@
   <a href="https://hiveintelligence.netlify.app/">
     <img src="https://img.shields.io/badge/🌐_Visit_Website-blue" alt="Website">
   </a>
-  <a href="https://pypi.org/project/hive-agents/">
-    <img src="https://img.shields.io/pypi/v/hive-agents.svg?" alt="PyPI">
-  </a>
   <a href="https://www.npmjs.com/package/hive-agents">
     <img src="https://img.shields.io/npm/v/hive-agents.svg" alt="npm">
   </a>
@@ -67,13 +64,13 @@ Hive Intelligence Agents is a **specialized crypto intelligence framework** that
 
 ## ⚡ **Quick Installation**
 
-### **Choose Your Installation Method**
+### **No Python Required! Pure Node.js Installation**
 
 | Method | Command | Best For |
 |:------:|---------|----------|
-| **🐍 pipx** | `pipx install hive-agents && hive-agents install` | **✅ Recommended** - Linux/macOS |
-| **📦 pip** | `pip install hive-agents && hive-agents install` | Traditional Python environments |
-| **🌐 npm** | `npm install -g hive-agents && hive-agents install` | Cross-platform, Node.js users |
+| **🌐 npm** | `npm install -g hive-agents && hive-agents install` | **✅ Recommended** - All platforms |
+| **📦 npx** | `npx hive-agents install` | One-time use without global install |
+| **🔧 Local** | `npm install hive-agents` | Project-specific installation |
 
 </div>
 
@@ -99,17 +96,22 @@ hive-agents install
 </details>
 
 <details>
-<summary><b>💡 Troubleshooting PEP 668 Errors</b></summary>
+<summary><b>💡 System Requirements</b></summary>
+
+**Prerequisites:**
+- Node.js 16 or higher
+- Claude Code installed
+
+**No Python Required!** This package runs entirely on Node.js.
 
 ```bash
-# Option 1: Use pipx (Recommended)
-pipx install hive-agents
+# Check Node.js version
+node --version  # Should be v16 or higher
 
-# Option 2: User installation
-pip install --user hive-agents
-
-# Option 3: Force installation (use with caution)
-pip install --break-system-packages hive-agents
+# Install if needed
+# Windows: winget install OpenJS.NodeJS
+# macOS: brew install node
+# Linux: sudo apt install nodejs npm
 ```
 </details>
 
@@ -368,23 +370,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 <p align="center">
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg?" alt="MIT License">
 </p>
-
-</div>
-
----
-
-<div align="center">
-
-## ⭐ **Star History**
-
-<a href="https://www.star-history.com/#SuperClaude-Org/SuperClaude_Framework&Timeline">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=hive-intel/hive-agents&type=Timeline&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=hive-intel/hive-agents&type=Timeline" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=hive-intel/hive-agents&type=Timeline" />
- </picture>
-</a>
-
 
 </div>
 

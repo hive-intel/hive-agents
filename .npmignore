@@ -12,7 +12,9 @@ build/
 # Documentation source files (keep compiled docs)
 Docs/
 docs/
-SuperClaude/
+# Keep SuperClaude/Agents for base agent files
+SuperClaude/*
+!SuperClaude/Agents/
 scripts/
 tests/
 test/
@@ -40,9 +42,8 @@ tox.ini
 # Included via "files" in package.json:
 # - bin/
 # - agents/
+# - SuperClaude/Agents/
 # - index.js
 # - README.md
 # - LICENSE
 # - HIVE_AGENTS.md
-# - pyproject.toml (for Python installation)
-# - setup.py (for Python installation)

@@ -156,24 +156,58 @@ class HiveIntelligence {
         : path.join(process.env.HOME, '.claude');
     }
 
+    // Create Claude Code directory if it doesn't exist
+    if (!fs.existsSync(targetPath)) {
+      fs.mkdirSync(targetPath, { recursive: true });
+    }
+
     // Copy agents
     const agentsTarget = path.join(targetPath, 'agents');
     if (!fs.existsSync(agentsTarget)) {
       fs.mkdirSync(agentsTarget, { recursive: true });
     }
 
-    // Copy each agent file
+    let installedCount = 0;
+
+    // Copy crypto agent files
     this.agents.crypto.forEach(agent => {
       if (agent.file) {
         const source = path.join(this.agentsPath, agent.file);
         const dest = path.join(agentsTarget, agent.file);
-        fs.copyFileSync(source, dest);
-        console.log(`  ✓ Installed ${agent.name}`);
+        try {
+          fs.copyFileSync(source, dest);
+          console.log(`  ✓ Installed ${agent.name}`);
+          installedCount++;
+        } catch (err) {
+          console.error(`  ✗ Failed to install ${agent.name}: ${err.message}`);
+        }
       }
     });
 
-    console.log(`\n✅ Installed ${this.agents.crypto.length} crypto agents`);
+    // Copy base agent files from SuperClaude
+    const superClaudeAgentsDir = path.join(__dirname, 'SuperClaude', 'Agents');
+    if (fs.existsSync(superClaudeAgentsDir)) {
+      const baseAgentFiles = fs.readdirSync(superClaudeAgentsDir)
+        .filter(file => file.endsWith('.md'));
+      
+      baseAgentFiles.forEach(file => {
+        const source = path.join(superClaudeAgentsDir, file);
+        const dest = path.join(agentsTarget, file);
+        try {
+          fs.copyFileSync(source, dest);
+          console.log(`  ✓ Installed ${file.replace('.md', '')}`);
+          installedCount++;
+        } catch (err) {
+          console.error(`  ✗ Failed to install ${file.replace('.md', '')}: ${err.message}`);
+        }
+      });
+    }
+
+    console.log(`\n✅ Installed ${installedCount} agents to Claude Code!`);
+    console.log(`📍 Location: ${agentsTarget}`);
     console.log('🐝 Hive Intelligence Agents ready to use with Claude Code!');
+    
+    return { success: true, installedCount, path: agentsTarget };
   }
 }
 

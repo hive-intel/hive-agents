@@ -1,6 +1,6 @@
 {
   "name": "hive-agents",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "description": "Hive Intelligence Agents - Specialized crypto intelligence agents extending Claude Code with blockchain analysis and DeFi capabilities.",
   "main": "index.js",
   "bin": {
@@ -15,12 +15,11 @@
   "files": [
     "bin/",
     "agents/",
+    "SuperClaude/Agents/",
     "index.js",
     "README.md",
     "LICENSE",
-    "HIVE_AGENTS.md",
-    "pyproject.toml",
-    "setup.py"
+    "HIVE_AGENTS.md"
   ],
   "author": {
     "name": "Hive Intelligence",
@@ -43,9 +42,8 @@
     "defi",
     "ai",
     "cli",
-    "pypi",
-    "python",
-    "wrapper",
+    "claude-code",
+    "mcp",
     "cross-platform",
     "automation"
   ],
